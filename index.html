@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicago Art Institute</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="main.js" defer></script>
+</head>
+<body>
+    <!--Start of Container For Artworks-->
+    <div class="container">
+        <div class="gallery"> 
+            <figure class="gallery__item gallery__item--1" id="fig1" >
+                <img class="gallery__img" src="images/georgiaokeefe.jpg" alt="Distant View of Niagara Falls">
+            </figure>
+
+            <figure class="gallery__item gallery__item--2" id="fig2" >
+                <img class="gallery__img" src="images/haraldoscarsohlberg.jpg" alt="#">
+            </figure>
+
+            <figure class="gallery__item gallery__item--3" id="fig3" >
+                <img class="gallery__img" src="images/vasilykandinsky1.jpg" alt="">
+            </figure>
+
+            <figure class="gallery__item gallery__item--4" id="fig4">
+                <img class="gallery__img" src="images/tosamistuoki.jpg" alt="">
+            </figure>
+
+            <figure class="gallery__item gallery__item--5" id="fig5">
+                <img class="gallery__img" src="images/vasilykandinsky2.jpg" alt="">
+            </figure>
+
+            <figure class="gallery__item gallery__item--6" id="fig6">
+                <img class="gallery__img" src="images/marsdenhartley.jpg" alt="">
+            </figure>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12">
+                <button class="btn btn-info" onclick="load_data()">Get Artist Info</button>
+                <button class="btn btn-danger" onclick="clear_data()">Clear Data</button>
+                <section class="list-group ranger-list"></section>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
