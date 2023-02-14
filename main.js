@@ -1,58 +1,69 @@
-// Button style from Joel's Power Rangers doc
-// Note: Gets data from API
-const getData = async () => {
-    let response = await axios.get(`https://api.artic.edu/api/v1/artworks/8991`)
-    console.log(response.data)
-    return response.data    
+async function clickedEvent(img_index, item_index) {
+    let track = document.getElementsByTagName('img')[img_index].attributes[2].value;
+
+    let headers = new Headers([
+        ['Content-Type', 'application/json'],
+    ]);
+
+    let request = new Request(`https://api.artic.edu/api/v1/artworks/${track}`,{
+         method: 'GET',
+         headers: headers
+     });
+
+     let result = await fetch(request);
+
+     let response = await result.json();
+
+     console.log(response)
+// ------------------------------------------------------------------------------------------
+     let test = document.getElementById("test")
+     test = `"${response.data.title}" is the title of the artwork. It was created by ${response.data.artist_title}, in the year ${response.data.date_display}. \nLocation: ${response.data.place_of_origin} \nMedium: ${response.data.medium_display} \nDimensions: ${response.data.dimensions}`;
+     alert(test);
+
+    // Issue 1: I am statically accessing only one p tag but I need to do it for all pics: DONE
+    // Issue 2: This only displays one piece of information, how do I display multiple?: WITH A POP-UP
+    // Hint 1: I can make response.data.id an fstring (response.data.artist_display): Thank you!
+    // User query notation: [`${variable}`]: Tried and failed, but I think I like the alert box appearance more anyway.
+
+
 }
-// Stores it
-const DOM_Elements = {
-    artwork_list : '.artwork-list',
+// ----------------------------------------
+ /**
+  * @param id
+  * @param event
+  */
+
+ function getArt(id,event){
+    switch(id){
+        case 'fig1': {
+            event.stopPropagation();
+            clickedEvent(0,0)
+            break;
+        }
+        case 'fig2': {
+            event.stopPropagation();
+            clickedEvent(1,0)
+            break;
+        }
+        case 'fig3': {
+            event.stopPropagation();
+            clickedEvent(2,0)
+            break;
+        }
+        case 'fig4': {
+            event.stopPropagation();
+            clickedEvent(3,0)
+            break;
+        }
+        case 'fig5': {
+            event.stopPropagation();
+            clickedEvent(4,0)
+            break;
+        }
+        case 'fig6': {
+            event.stopPropagation();
+            clickedEvent(5,0)
+            break;
+        }
+    }
 }
-// Makes it a list
-const create_list = ( id, title ) => {
-    const html = `a href ='#' class="list-group-item list-group-item-action list-group-item-light" id="${id}"> ${title} </a>`;
-    document.querySelector(DOM_Elements.artwork_list).insertAdjacentHTML('beforeend', html)
-}
-// Loads list
-const load_data = async () => {
-    const artworks = await getData();
-    artworks.forEach(element => create_list(element.id, element.title))
-}
-// Clears list
-const clear_data= () => {
-    document.querySelector(DOM_Elements.artist_list).innerHTML = '';
-}
-
-
-
-
-
-// ----------------------------From https://w3collective.com/fetch-display-api-data-javascript/
-// fetch("https://api.artic.edu/api/v1/artworks/8991")
-//   .then((response) => {
-//     if (response.ok) {
-//       return response.json();
-//     } else {
-//       throw new Error("NETWORK RESPONSE ERROR");
-//     }
-//   })
-//   .then(data => {
-//     console.log(data);
-//     displayArtwork(data)
-//   })
-//   .catch((error) => console.error("FETCH ERROR:", error));
-
-//   function displayArtwork(data) {
-//     const artwork = data.data[0];
-//     const artworkDiv = document.getElementById("artwork");
-
-//     const artistName = artwork.strData;
-//     const heading = document.createElement("h1");
-//     heading.innerHTML = artistName;
-//     artworkDiv.appendChild(heading);
-//   }
-
-
-// -----------Additional resource: 
-// https://www.geeksforgeeks.org/working-with-apis-in-javascript/

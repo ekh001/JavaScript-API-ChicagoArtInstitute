@@ -3,50 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chicago Art Institute</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Enter your description here"/>
+    <script src="https://kit.fontawesome.com/48cfc9194a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Chicago Art Institute API</title>
     <link rel="stylesheet" href="main.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="main.js" defer></script>
 </head>
 <body>
+<!-- Navbar -->    
+<nav class="navbar navbar-expand-large navbar-dark fixed-top">
+    <div class="container">
+        <h1>A pigment of your imagination.</h1>
+        <p>Select an artwork to view details.</p>
+    </div>
+</nav>
     <!--Start of Container For Artworks-->
     <div class="container">
         <div class="gallery"> 
-            <figure class="gallery__item gallery__item--1" id="fig1" >
-                <img class="gallery__img" src="images/georgiaokeefe.jpg" alt="Distant View of Niagara Falls">
+            <figure class="gallery__item gallery__item--1" id="fig1" onclick="getArt(this.id, event)">
+                <img class="gallery__img" src="images/vasilykandinsky1.jpg" alt="8991" id="test">
+                <!-- <h1 id="test"></h1> -->
+            </figure>
+<!-- Make it a popup instead of the p tag, because then you have to close the popup and click a new image -->
+            <figure class="gallery__item gallery__item--2" id="fig2" onclick="event.stopPropagation(); getArt(this.id, event)">
+                <img class="gallery__img" src="images/haraldoscarsohlberg.jpg" alt="152437" id="test">
+                <!-- <h1 id="test2"></h1> -->
             </figure>
 
-            <figure class="gallery__item gallery__item--2" id="fig2" >
-                <img class="gallery__img" src="images/haraldoscarsohlberg.jpg" alt="#">
+            <figure class="gallery__item gallery__item--3" id="fig3" onclick="event.stopPropagation(); getArt(this.id, event)">
+                <img class="gallery__img" src="images/vasilykandinsky2.jpg" alt="8980" id="test">
+                <p id="test"></p>
             </figure>
 
-            <figure class="gallery__item gallery__item--3" id="fig3" >
-                <img class="gallery__img" src="images/vasilykandinsky1.jpg" alt="">
+            <figure class="gallery__item gallery__item--4" id="fig4" onclick="event.stopPropagation(); getArt(this.id, event)">
+                <img class="gallery__img" src="images/tosamistuoki.jpg" alt="127644" id="test">
+                <p id="test"></p>
             </figure>
 
-            <figure class="gallery__item gallery__item--4" id="fig4">
-                <img class="gallery__img" src="images/tosamistuoki.jpg" alt="">
+            <figure class="gallery__item gallery__item--5" id="fig5" onclick="event.stopPropagation(); getArt(this.id, event)">
+                <img class="gallery__img" src="images/thomascole.jpg" alt="90048" id="test">
+                <p id="test"></p>
             </figure>
 
-            <figure class="gallery__item gallery__item--5" id="fig5">
-                <img class="gallery__img" src="images/vasilykandinsky2.jpg" alt="">
-            </figure>
-
-            <figure class="gallery__item gallery__item--6" id="fig6">
-                <img class="gallery__img" src="images/marsdenhartley.jpg" alt="">
+            <figure class="gallery__item gallery__item--6" id="fig6" onclick="event.stopPropagation(); getArt(this.id, event)">
+                <img class="gallery__img" src="images/marsdenhartley.jpg" alt="65916" id="test">
+                <p id="test"></p>
             </figure>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-12">
-                <button class="btn btn-info" onclick="load_data()">Get Artist Info</button>
-                <button class="btn btn-danger" onclick="clear_data()">Clear Data</button>
-                <section class="list-group ranger-list"></section>
-            </div>
-        </div>
-    </div>
-
-    
 </body>
 </html>
