@@ -1,3 +1,16 @@
+// navbar event listener:
+window.addEventListener('scroll', function() {
+    var navbar = document.querySelector('.navbar');
+    var scrolled = window.scrollY || document.documentElement.scrollTop;
+
+    if (scrolled > 0) {
+        navbar.classList.add('navbar-scrolled');
+    } else {
+        navbar.classList.remove('navbar-scrolled');
+    }
+});
+
+
 async function clickedEvent(img_index, item_index) {
     let track = document.getElementsByTagName('img')[img_index].attributes[2].value;
 
@@ -12,18 +25,15 @@ async function clickedEvent(img_index, item_index) {
 
      let result = await fetch(request);
 
-     let response = await result.json();
+     let response = await result.json(); 
 
      console.log(response)
 // ------------------------------------------------------------------------------------------
      let test = document.getElementById("test")
      test = `"${response.data.title}" is the title of the artwork. It was created by ${response.data.artist_title}, in the year ${response.data.date_display}. \nLocation: ${response.data.place_of_origin} \nMedium: ${response.data.medium_display} \nDimensions: ${response.data.dimensions}`;
      alert(test);
-
-    // Issue 1: I am statically accessing only one p tag but I need to do it for all pics: DONE
-    // Issue 2: This only displays one piece of information, how do I display multiple?: WITH A POP-UP
-    // Hint 1: I can make response.data.id an fstring (response.data.artist_display): Thank you!
-    // User query notation: [`${variable}`]: Tried and failed, but I think I like the alert box appearance more anyway.
+     
+// ----------------------------------------
 
 
 }

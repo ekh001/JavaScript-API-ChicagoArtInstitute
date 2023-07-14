@@ -18,6 +18,11 @@ nav {
     text-align: center;
 }
 
+.navbar-scrolled {
+    background-color: black;
+    transition: .5s;
+}
+
 body{
     display: flex;
     font-weight: 300;
@@ -30,7 +35,7 @@ body{
 
 /* Styles for poster */
 .container{
-    width: 75%;
+    width: 85%;
     margin: 2rem auto;
 }
 
@@ -48,7 +53,8 @@ body{
     max-height: 100%;
     display: block;
     padding: 5px;
-    background-color: white;
+    background-color: rgb(202, 226, 248);
+    border-radius: 10px;
 }
 
 .gallery__img:hover {
@@ -57,7 +63,9 @@ body{
     max-height: 100%;
     display: block;
     padding: 8px;
-    background-color:black;
+    background-color:white;
+    transition: .5s;
+    transform: scale(10deg);
 }
 
 .gallery__item--1{
