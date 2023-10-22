@@ -28,7 +28,7 @@ body{
     font-weight: 300;
     line-height: 1.6;
     margin-top: 230px;
-    background-image: url(http://jd-doria.com/full/petri_2014/IMG_1340.jpg);
+    background-image: url('images/bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }
